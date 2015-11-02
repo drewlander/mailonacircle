@@ -36,6 +36,11 @@ execute 'open nginx ports' do
 end
 
 execute 'selinux yay' do
+  command 'setsebool -P httpd_can_sendmail 1'
+  not_if {`getsebool httpd_unified | grep 1`}
+end
+
+execute 'selinux nginx' do
   command 'setsebool -P httpd_unified on'
   not_if {`getsebool httpd_unified | grep on`}
 end
