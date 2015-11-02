@@ -714,3 +714,11 @@ smptd_tls_session_cache_database=btree:/var/spool/postfix/smtpd_tls_cache
 virtual_mailbox_extended=yes
 smtpd_tls_note_starttls_offer=yesction = accept
 smtpd_milters = unix:/var/run/clamav-milter/clamav-milter.socket, unix:/var/run/spamass-milter/postfix/sock, inet:127.0.0.1:8891
+
+postscreen_access_list = permit_mynetworks, 
+        cidr:/etc/postfix/postscreen_access.cidr
+
+/etc/postfix/main.cf:
+    postscreen_dnsbl_threshold = 2
+    postscreen_dnsbl_sites = zen.spamhaus.org*2 
+        bl.spamcop.net*1 b.barracudacentral.org*1

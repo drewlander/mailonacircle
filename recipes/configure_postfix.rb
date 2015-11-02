@@ -2,6 +2,10 @@ directory '/etc/postfix/sql' do
   action :create
 end
 
+file '/etc/postfix/postscreen_access.cidr' do
+  content '127.0.0.0/8 permit'
+end
+
 directory '/home/vmail' do
   action :create
   owner 'mail'
