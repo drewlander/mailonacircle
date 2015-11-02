@@ -56,4 +56,10 @@ service 'php-fpm' do
   action [:start, :enable]
 end
 
+ execute 'fix_selinux_template_smarty' do
+  command "semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/postfixadmin/templates_c'" 
+end
 
+execute 'restorecon template'do
+  command "restorecon -v '/var/www/html/postfixadmin/templates_c'"
+end
