@@ -1,11 +1,3 @@
-service 'nginx' do
-  action [:start, :enable]
-end
-
-service 'php-fpm' do
-  action [:start, :enable]
-end
-
 cookbook_file '/etc/yum.repos.d/nginx.repo' do
   source 'nginx.repo'
 end
@@ -55,3 +47,13 @@ end
 execute 'fix_session_perms' do
   command 'chown nginx:nginx /var/lib/php/session'
 end
+
+service 'nginx' do
+  action [:start, :enable]
+end
+
+service 'php-fpm' do
+  action [:start, :enable]
+end
+
+

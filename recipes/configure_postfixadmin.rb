@@ -22,6 +22,9 @@ template '/var/www/html/postfixadmin/config.inc.php' do
   notifies :restart, 'service[nginx]'
 end
 
+execute 'change www perms' do
+  command 'chown -R nginx:nginx /var/www/html/postfixadmin'
+end
 #file '/tmp/postfixadmin.sql' do
 #  content "INSERT INTO admin(username,password,superadmin,created,modified,active) VALUES('postfixadmin', '#{node['postfixadmin']['md5crypt_pw']}', 1, NOW(), NOW(), 1);"
 #end
