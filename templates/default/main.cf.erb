@@ -718,7 +718,5 @@ smtpd_milters = unix:/var/run/clamav-milter/clamav-milter.socket, unix:/var/run/
 postscreen_access_list = permit_mynetworks, 
         cidr:/etc/postfix/postscreen_access.cidr
 
-/etc/postfix/main.cf:
-    postscreen_dnsbl_threshold = 2
-    postscreen_dnsbl_sites = zen.spamhaus.org*2 
-        bl.spamcop.net*1 b.barracudacentral.org*1
+postscreen_dnsbl_threshold = 2
+postscreen_dnsbl_sites = zen.spamhaus.org*2 bl.spamcop.net*1 b.barracudacentral.org*1
