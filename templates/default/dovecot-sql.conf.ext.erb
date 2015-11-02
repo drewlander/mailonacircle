@@ -1,0 +1,5 @@
+driver = mysql
+connect = host=localhost dbname=mail user=<%= node['postfix']['mysql_postfix_username']%>  password=<%= node['postfix']['mysql_postfix_password'] %>
+default_pass_scheme = MD5-CRYPT
+user_query = SELECT '/home/vmail/%n@%d' AS home, 8 AS uid, 12 AS gid FROM mailbox WHERE username = '%u'
+password_query = SELECT password FROM mailbox WHERE username = '%u'

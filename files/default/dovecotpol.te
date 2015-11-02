@@ -1,0 +1,10 @@
+
+module mypol 1.0;
+
+require {
+	type dovecot_t;
+	class capability sys_resource;
+}
+
+#============= dovecot_t ==============
+allow dovecot_t self:capability sys_resource;

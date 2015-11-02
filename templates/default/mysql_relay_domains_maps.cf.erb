@@ -1,0 +1,7 @@
+user = <%=  node['postfix']['mysql_postfix_username'] %>
+password = <%= node['postfix']['mysql_postfix_password'] %>
+hosts = 127.0.0.1
+dbname = mail
+table = domain
+select_field = domain
+additional_conditions = and backupmx = '1'

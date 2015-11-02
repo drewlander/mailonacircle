@@ -1,0 +1,17 @@
+server {
+  listen       <%= node['nginx']['postfixadmin_port']%>;
+  server_name  <%= node['nginx']['postfixadmin_servername']%>;
+
+  error_log /var/log/nginx/error.log debug;
+
+  root   /var/www/html/postfixadmin;
+  index  index.php index.html index.htm;
+
+  location ~ \.php$ {
+    fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME      $document_root$fastcgi_script_name;
+    include        fastcgi_params;
+  }
+
+}

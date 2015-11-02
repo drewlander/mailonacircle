@@ -1,0 +1,8 @@
+user = <%=  node['postfix']['mysql_postfix_username'] %>
+password = <%= node['postfix']['mysql_postfix_password'] %>
+hosts = 127.0.0.1
+dbname = virtual_mail
+table = mailbox
+select_field = quota
+where_field = username
+#additional_conditions = and active = '1'
