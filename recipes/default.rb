@@ -47,3 +47,7 @@ include_recipe "mailonacircle::configure_postfixadmin"
 include_recipe "mailonacircle::configure_dovecot"
 include_recipe "mailonacircle::configure_antispam"
 include_recipe "mailonacircle::configure_dkim"
+
+execute 'crappy fix until later' do
+  command 'chmod -R 777 /var/run/clamav-milter/'
+end
