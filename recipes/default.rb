@@ -32,7 +32,7 @@ execute 'create_dovecot_selinux_policy' do
     semodule -i /tmp/dovecotpol.pp   
   EOF
   action :nothing
-  not_if {File.exists '/tmp/dovecotpol/pp'}
+  not_if {File.exists? '/tmp/dovecotpol/pp'}
 end
 
 file '/tmp/dovecotpol' do
