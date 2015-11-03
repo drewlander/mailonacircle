@@ -23,13 +23,15 @@ Manual Steps:
   * Ensure EPEL Repo is setup on your server
 
 Quick Setup (I don't care about the things):
-* rpm -ivh https://opscode-omnibus-packages.s3.amazonaws.com/el/7/x86_64/chef-12.5.1-1.el7.x86_64.rpm
-* mkdir .chef
-* mkdir cookbooks
-* echo 'cookbook_path "/root/cookbooks"' > .chef/solo.rb
-* git clone https://github.com/drewlander/mailonacircle.git
-* mv mailonacircle cookbooks
-* chef-solo -c .chef/solo.rb -o recipe[mailonacircle]
+```
+ rpm -ivh https://opscode-omnibus-packages.s3.amazonaws.com/el/7/x86_64/chef-12.5.1-1.el7.x86_64.rpm
+ mkdir .chef
+ mkdir cookbooks
+ echo 'cookbook_path "/root/cookbooks"' > .chef/solo.rb
+ git clone https://github.com/drewlander/mailonacircle.git
+ mv mailonacircle cookbooks
+ chef-solo -c .chef/solo.rb -o recipe[mailonacircle]
+```
 * go to "https://sitename/setup.php"
 * Copy the key to vim /var/www/html/postfixadmin/config.inc.php
   * paste it into setup_password
