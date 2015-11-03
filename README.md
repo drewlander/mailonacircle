@@ -20,6 +20,7 @@ Manual Steps:
     * /var/www/html/postfixadmin/config.inc.php 
   * Setup your domains/mailboxes in postfixadmin (or direct sql)
   * Copy opendkim keys to your DNS TXT records
+  * Ensure EPEL Repo is setup on your server
 
 Quick Setup (I don't care about the things):
 * rpm -ivh https://opscode-omnibus-packages.s3.amazonaws.com/el/7/x86_64/chef-12.5.1-1.el7.x86_64.rpm
