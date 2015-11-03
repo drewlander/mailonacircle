@@ -32,7 +32,7 @@ template '/etc/nginx/conf.d/postfixadmin.conf' do
 end
 
 execute 'open nginx ports' do
-  command 'firewall-cmd --zone=public --add-service=http --permanent; firewall-cmd --zone=public --add-service=http'
+  command 'firewall-cmd --zone=public --add-service=https --permanent; firewall-cmd --zone=public --add-service=https'
 end
 
 execute 'selinux yay' do
