@@ -1,15 +1,25 @@
 mailonacircle Cookbook
 ======================
-TODO: Enter the cookbook description here.
+There is a LOT TO DO, but it works for me so far
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook is a side project that does the following:
+* Installs and configures:
+  * postfix
+  * dovecot
+  * mariadb
+  * spamassassin
+  * postgrey-milter
+  * clamav-milter
+  * opendkim
+  * postscreen
+* Requirements:
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+  * Centos 7
+  * desginged to be run by chef-solo (currently)
+  * assumues selinux is at least in permissive (enforcing recommended)
 
-e.g.
 #### packages
 - `toaster` - mailonacircle needs toaster to brown your bagel.
 
