@@ -35,6 +35,7 @@ Quick Setup (I don't care about the things):
 * Create a new admin
 * Login as the new admin
 * Create a domain and mailbox in postfixadmin
+
 Requirements
 ------------
   * Centos 7
