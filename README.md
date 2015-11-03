@@ -1,6 +1,7 @@
 mailonacircle Cookbook
 ======================
-There is a LOT TO DO, but it works for me so far
+There is a LOT TO DO, but it works for me so far.
+This was created because there is mailinabox for ubuntu, but nothing for centos
 
 This cookbook is a side project that does the following:
 * Installs and configures:
@@ -12,7 +13,13 @@ This cookbook is a side project that does the following:
   * clamav-milter
   * opendkim
   * postscreen
-* Requirements:
+
+Manual Steps:
+* After installing postfixadmin, you have to go to:
+  * https://yoursite.com/setup.php and let it set things up, and copy the hash to
+    * /var/www/html/postfixadmin/config.inc.php 
+  * Setup your domains/mailboxes in postfixadmin (or direct sql)
+  * Copy opendkim keys to your DNS TXT records
 
 Requirements
 ------------
@@ -27,7 +34,6 @@ Attributes
 ----------
 TODO: List your cookbook attributes here.
 
-e.g.
 #### mailonacircle::default
 <table>
   <tr>
@@ -63,9 +69,7 @@ Just include `mailonacircle` in your node's `run_list`:
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
-
-e.g.
+Contributions are welcome! This is a side project. 
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -75,4 +79,4 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: drewlander <drewski@drewstud.com>
