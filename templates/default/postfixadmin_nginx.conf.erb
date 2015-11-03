@@ -1,4 +1,11 @@
 server {
+  ssl on;
+  ssl_prefer_server_ciphers On;
+  ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
+
+  ssl_certificate /etc/pki/tls/certs/<%= node['nginx']['postfixadmin_servername']%>.crt;
+  ssl_certificate_key /etc/pki/tls/private/<%= node['nginx']['postfixadmin_servername']%>.key;
   listen       <%= node['nginx']['postfixadmin_port']%>;
   server_name  <%= node['nginx']['postfixadmin_servername']%>;
 
