@@ -30,6 +30,8 @@ execute 'create_dovecot_selinux_policy' do
     checkmodule -M -m -o /tmp/dovecotpol.mod /tmp/dovecotpol.te
     semodule_package -o /tmp/dovecotpol.pp -m /tmp/dovecotpol.mod
     semodule -i /tmp/dovecotpol.pp   
+    semanage fcontext -a -t mail_spool_t "/home/vmail(/.*)?"
+    restorecon -R /home/vmail/
   EOF
   action :nothing
   not_if {File.exists? '/tmp/dovecotpol/pp'}
