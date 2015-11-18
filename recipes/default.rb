@@ -21,6 +21,12 @@ package 'postfix' do
   notifies :restart, 'service[postfix]'
 end
 
+directory '/home/vmail' do
+  action :create
+  owner 'mail'
+  group 'mail'
+end
+
 cookbook_file '/tmp/dovecotpol.te' do
   source 'dovecotpol.te'
 end
