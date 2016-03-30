@@ -33,14 +33,11 @@ execute 'generate_keys' do
     chown -R opendkim. /etc/opendkim/keys/
     chown -R opendkim.opendkim /etc/opendkim/keys/
   EOF
-  cwd '/etc/opendkim/keys'
-  not_if {File.exists? "/etc/opendkim/keys/#{node['postfix']['my_domain']}"}
+  cwd "/etc/opendkim/keys/#{node['postfix']['my_domain']}"
+  not_if {File.exists? "/etc/opendkim/keys/#{node['postfix']['my_domain']}/default.private"}
+  notifies :restart, 'service[opendkim]'
 end
 
-
-execute 'start dkim' do
-command <<-EOF
-  systemctl enable opendkim.service
-  systemctl start opendkim.service
-EOF
+service 'opendkim' do
+action [:enable,:start]
 end
