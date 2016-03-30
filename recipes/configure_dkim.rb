@@ -21,7 +21,7 @@ template '/etc/opendkim/SigningTable' do
 end
 
 
-directory "/etc/opendkim/keys#{node['postfix']['my_domain']}" do
+directory "/etc/opendkim/keys/#{node['postfix']['my_domain']}" do
   action :create
   recursive true
 end
