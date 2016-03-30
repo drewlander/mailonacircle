@@ -42,8 +42,6 @@ execute 'start all the things' do
   systemctl start clamav-milter.service
   systemctl enable postgrey.service
   systemctl start postgrey.service
-  systemctl enable opendkim.service
-  systemctl start opendkim.service
   systemctl restart postfix.service
   EOF
 end

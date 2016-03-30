@@ -36,3 +36,11 @@ execute 'generate_keys' do
   cwd '/etc/opendkim/keys'
   not_if {File.exists? "/etc/opendkim/keys/#{node['postfix']['my_domain']}"}
 end
+
+
+execute 'start dkim' do
+command <<-EOF
+  systemctl enable opendkim.service
+  systemctl start opendkim.service
+EOF
+end
