@@ -20,6 +20,7 @@ end
 template '/var/www/html/postfixadmin/config.inc.php' do
   source 'config.inc.php.erb'
   notifies :restart, 'service[nginx]'
+  only_if "grep changeme /var/www/html/postfixadmin/config.inc.php"
 end
 
 execute 'change www perms' do
