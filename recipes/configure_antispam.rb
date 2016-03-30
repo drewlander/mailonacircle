@@ -28,20 +28,15 @@ cookbook_file '/etc/mail/clamav-milter.conf' do
   source 'clamav-milter.conf'
 end
 
-execute 'start all the things' do
-  command <<-EOF
-  systemctl enable spamassassin.service
-  systemctl start spamassassin.service
-  systemctl enable spamass-milter.service
-  systemctl enable spamass-milter-root.service
-  systemctl start spamass-milter.service
-  #systemctl start spamass-milter-root.service
-  systemctl enable clamd@scan.service
-  systemctl start clamd@scan.service
-  systemctl enable clamav-milter.service
-  systemctl start clamav-milter.service
-  systemctl enable postgrey.service
-  systemctl start postgrey.service
-  systemctl restart postfix.service
-  EOF
+%w(spamassassin.service 
+   spamass-milter.service 
+   spamass-milter-root.service
+   clamd@scan.service
+   clamav-milter.service
+   postgrey.service
+   postfix.service
+).each do |svc|
+  service svc do
+  action [:enable, :start]
+  end
 end
