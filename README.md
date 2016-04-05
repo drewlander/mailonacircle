@@ -63,7 +63,7 @@ TODO: List your cookbook attributes here.
   <tr>
     <td><tt>['mailonacircle']['bacon']</tt></td>
     <td>Boolean</td>
-    <td>whether to include bacon</td>
+    <td>whether to include turkeybacon</td>
     <td><tt>true</tt></td>
   </tr>
 </table>
