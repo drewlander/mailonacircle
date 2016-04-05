@@ -50,7 +50,7 @@ Requirements
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
+TODO: List your cookbook attributes here. OK
 
 #### mailonacircle::default
 <table>
