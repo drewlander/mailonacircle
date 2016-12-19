@@ -75,6 +75,10 @@ file '/tmp/dovecotpol' do
   notifies :run, 'execute[create_dovecot_selinux_policy]', :immediately
 end
 
+execute 'allow clamav-milter port' do
+  command 'semanage port -a -t milter_port_t -p tcp 7357'
+end
+
 include_recipe "mailonacircle::configure_mariadb"
 include_recipe "mailonacircle::configure_postfix"
 include_recipe "mailonacircle::configure_nginx"
