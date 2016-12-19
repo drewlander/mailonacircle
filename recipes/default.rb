@@ -76,7 +76,7 @@ file '/tmp/dovecotpol' do
 end
 
 execute 'allow clamav-milter port' do
-  command 'semanage port -a -t milter_port_t -p tcp 7357'
+  command 'semanage port -a -t milter_port_t -p tcp 7357 || echo "already defined"'
 end
 
 include_recipe "mailonacircle::configure_mariadb"
