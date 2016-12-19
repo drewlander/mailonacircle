@@ -31,6 +31,33 @@ cookbook_file '/tmp/dovecotpol.te' do
   source 'dovecotpol.te'
 end
 
+cookbook_file '/tmp/my-spamassmilter.te' do
+  source 'my-spamassmilter.te'
+end
+execute 'create_clamav_milter_selinux_policy' do
+  command <<-EOF
+    checkmodule -M -m -o /tmp/my-spamassmilter.mod /tmp/my-spamassmilter.te
+    semodule_package -o /tmp/my-spamassmilter.pp -m /tmp/my-spamassmilter.mod
+    semodule -i /tmp/my-spamassmilter.pp   
+  EOF
+  not_if {File.exists? '/tmp/my-spamassmilter.pp'}
+end
+
+cookbook_file '/tmp/my-smtpd.te' do
+  source 'my-smtpd.te'
+end
+
+execute 'create_clamav_milter_socket_selinux_policy' do
+  command <<-EOF
+    checkmodule -M -m -o /tmp/my-smtpd.mod /tmp/my-smtpd.te
+    semodule_package -o /tmp/my-smtpd.pp -m /tmp/my-smtpd.mod
+    semodule -i /tmp/my-smtpd.pp   
+  EOF
+  not_if {File.exists? '/tmp/my-smtpd.pp'}
+end
+
+
+
 execute 'create_dovecot_selinux_policy' do
   command <<-EOF
     checkmodule -M -m -o /tmp/dovecotpol.mod /tmp/dovecotpol.te

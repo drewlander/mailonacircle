@@ -1,0 +1,11 @@
+
+module my-smtpd 1.0;
+
+require {
+	type postfix_smtpd_t;
+	type init_t;
+	class unix_stream_socket connectto;
+}
+
+#============= postfix_smtpd_t ==============
+allow postfix_smtpd_t init_t:unix_stream_socket connectto;

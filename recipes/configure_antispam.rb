@@ -35,6 +35,7 @@ end
    clamav-milter.service
    postgrey.service
    postfix.service
+ spamass-milter
 ).each do |svc|
   service svc do
   action [:enable, :start]

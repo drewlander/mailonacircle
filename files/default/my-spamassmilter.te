@@ -1,0 +1,10 @@
+
+module my-spamassmilter 1.0;
+
+require {
+	type spamass_milter_t;
+	class capability chown;
+}
+
+#============= spamass_milter_t ==============
+allow spamass_milter_t self:capability chown;
