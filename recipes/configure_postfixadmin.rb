@@ -34,11 +34,11 @@ end
 #  command "mysql -u#{node['mysql']['mysql_username']} -p#{node['mysql']['mysql_password']} #{node['mysql']['mail_database_name']} < /tmp/postfixadmin.sql"
 #  not_if {File.exists? '/tmp/postfixadmin_user_created'}
 #end
-#
+
 #file '/tmp/postfixadmin_user_created' do
 #  content 'created'
 #end
-#
+
 execute 'fix_selinux_template_smarty' do
   command "semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/postfixadmin/templates_c'"
 end
