@@ -10,7 +10,7 @@ service 'postfix' do
   action :nothing
 end
 
-package 'epel-relase' do
+package 'epel-release' do
   action :install
 end
 
