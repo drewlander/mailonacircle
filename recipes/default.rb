@@ -15,7 +15,7 @@ package 'epel-release' do
 end
 
 
-%w{mod_ssl crypto-utils mariadb-server dovecot dovecot-mysql}.each do |pkg| 
+%w{mod_ssl crypto-utils mariadb-server dovecot dovecot-mysql checkpolicy}.each do |pkg| 
    package pkg do
      action :install
    end
